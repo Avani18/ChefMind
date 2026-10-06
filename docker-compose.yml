@@ -1,0 +1,16 @@
+services:
+  postgres:
+    image: postgres:16
+    container_name: chefmind-postgres
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: chefmind_admin
+      POSTGRES_PASSWORD: test1234
+      POSTGRES_DB: chefmind_db
+    ports:
+      - "5432:5432"
+    volumes:
+      - chefmind_pg_data:/var/lib/postgresql/data
+
+volumes:
+  chefmind_pg_data:
